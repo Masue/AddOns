@@ -406,7 +406,7 @@ function BLW.FuryDPSRotation(prioHamstring)
 	BLW.BattleShout()
 
 	if battle then
-		if BLW.HP() <= 20 and not UnitIsDead("target") then
+		if BLW.HP() < 20 and not UnitIsDead("target") then
 			if BLW.Rage() < 10 then
 				CastSpellByName("Berserker Stance")
 				BLW.lastStanceChange = GetTime()
@@ -473,10 +473,12 @@ function BLW.FuryDPSRotation(prioHamstring)
 		end
 		if BLW.targetDodged and BLW.HP() > 20 then
 			if (GetTime() - BLW.targetDodged) < 4 then
-				if BLW.SpellOnCD("Bloodthirst") or BLW.Rage() <= 25 then
-					if BLW.SpellOnCD("Whirlwind") or BLW.Rage() <= 25 then
-						CastSpellByName("Battle Stance")
-						BLW.lastStanceChange = GetTime()
+				if BLW.SpellOnCD("Bloodthirst") and BLW.Rage() <= 31 then
+					if BLW.SpellOnCD("Whirlwind") and BLW.Rage() <= 31 then
+						if not BLW.SpellOnCD("Overpower") and BLW.Rage() <= 31 then
+							CastSpellByName("Battle Stance")
+							BLW.lastStanceChange = GetTime()
+						end
 					end
 				end
 			else
