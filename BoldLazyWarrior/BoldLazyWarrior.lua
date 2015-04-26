@@ -473,9 +473,9 @@ function BLW.FuryDPSRotation(prioHamstring)
 		end
 		if BLW.targetDodged and BLW.HP() > 20 then
 			if (GetTime() - BLW.targetDodged) < 4 then
-				if BLW.SpellOnCD("Bloodthirst") and BLW.Rage() <= 31 then
-					if BLW.SpellOnCD("Whirlwind") and BLW.Rage() <= 31 then
-						if not BLW.SpellOnCD("Overpower") and BLW.Rage() <= 31 then
+				if BLW.SpellOnCD("Bloodthirst") and BLW.Rage() <= 41 then
+					if BLW.SpellOnCD("Whirlwind") and BLW.Rage() <= 41 then
+						if not BLW.SpellOnCD("Overpower") and BLW.Rage() <= 41 then
 							CastSpellByName("Battle Stance")
 							BLW.lastStanceChange = GetTime()
 						end
