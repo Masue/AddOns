@@ -249,12 +249,12 @@ function BLW.Tank()
 
 		-- on gcd
 		-- if (GetTime() - BLW.lastAbility) > 1.5 then
-			if UnitClassification("target") ~= "worldboss" and BLW.targetCasting and not BLW.SpellOnCD("Shield Bash") then
-				CastSpellByName("Shield Bash")
-				if BLW.SpellOnCD("Shield Bash") then
-					BLW.shieldBash = GetTime()
-				end
-			end
+		--	if UnitClassification("target") ~= "worldboss" and BLW.targetCasting and not BLW.SpellOnCD("Shield Bash") then
+		--		CastSpellByName("Shield Bash")
+		--		if BLW.SpellOnCD("Shield Bash") then
+		--			BLW.shieldBash = GetTime()
+		--		end
+		--	end
 			if BLW.Rage() < BLW.mainAbilityCost and not BLW.SpellOnCD("Revenge") then
 				CastSpellByName("Revenge")
 				if BLW.SpellOnCD("Revenge") then
