@@ -79,6 +79,8 @@ function SlashCmdList.BLW_ROTATION(rotation)
 		BLW.DPS2()
 	elseif rotation == "tank" then
 		BLW.Tank()
+	elseif rotation == "kt" then
+		BLW.Kt()
 	elseif rotation == "nf" then
 		BLW.Nightfall()
 	elseif rotation == "aoe" then
@@ -95,6 +97,8 @@ function SlashCmdList.BLW_ROTATION(rotation)
 		BC.m("Same as dps2 but execute in berserker stance.", BLW.prep)
 		BC.mb("/blw tank", BLW.prep)
 		BC.m("A tank rotation (both fury and prot).", BLW.prep)
+		BC.mb("/blw kt", BLW.prep)
+		BC.m("A tank rotation for Kel thuzad, doesn't include shield bash.", BLW.prep)
 		BC.mb("/blw nf", BLW.prep)
 		BC.m("A Nightfall rotation.", BLW.prep)
 		BC.mb("/blw aoe", BLW.prep)
@@ -301,6 +305,23 @@ function BLW.Tank()
 	-- if BLW.lastAbility < BLW.sunder then
 	-- 	BLW.lastAbility = BLW.sunder
 	-- end
+end
+
+function BLW.Kt()
+	if not BLW.TargetAndAttack() then return end
+	local _, defensive, _ = BLW.GetStances()
+	BLW.BattleShout(80)
+
+	if defensive then
+	-- If target == self do full threat rotation, no bash
+	
+	-- if target != self and targettarget class != warrior do shield slam and threat rotation
+	
+	-- if target != self and targettarget class == warrior do only heroic strikes and sunder, save rage for shield slam
+	else
+		CastSpellByName("Defensive Stance")
+	end
+
 end
 
 function BLW.Nightfall()

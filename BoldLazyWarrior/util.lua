@@ -6,6 +6,7 @@ BLW.doNotTarget = {
 -- function BC.MakeMacro(name, macro, perCharacter, macroIconTexture, iconIndex, replace, show, noCreate, replaceMacroIndex, replaceMacroName)
 function BLW.MakeMacros()
 	BC.MakeMacro("Tank", "/blw tank", 0, "Ability_Warrior_DefensiveStance", nil, 1, 1)
+	BC.MakeMacro("KT Tank", "/blw kt", 0, "Ability_Warrior_DefensiveStance", nil, 1, 1)
 	BC.MakeMacro("DPS", "/blw dps", 0, "Spell_Nature_BloodLust", nil, 1, 1)
 	BC.MakeMacro("DPS2", "/blw dps2", 0, "Ability_Warrior_OffensiveStance", nil, 1, 1)
 	BC.MakeMacro("NF", "/blw nf", 0, "Spell_Holy_ElunesGrace", nil, 1, 1)
