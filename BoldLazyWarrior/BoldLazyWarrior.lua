@@ -259,16 +259,17 @@ function BLW.Tank()
 		--			BLW.shieldBash = GetTime()
 		--		end
 		--	end
-			if BLW.Rage() < BLW.mainAbilityCost and not BLW.SpellOnCD("Revenge") then
-				CastSpellByName("Revenge")
-				if BLW.SpellOnCD("Revenge") then
-					BLW.revenge = GetTime()
-				end
-			end
+		
 			if not BLW.SpellOnCD(BLW.mainAbility) then
 				CastSpellByName(BLW.mainAbility)
 				if BLW.SpellOnCD(BLW.mainAbility) then
 					BLW.lastMainAbility = GetTime()
+				end
+			end
+			if BLW.Rage() < BLW.mainAbilityCost and not BLW.SpellOnCD("Revenge") then
+				CastSpellByName("Revenge")
+				if BLW.SpellOnCD("Revenge") then
+					BLW.revenge = GetTime()
 				end
 			end
 			if not BLW.SpellOnCD("Revenge") then
@@ -314,10 +315,90 @@ function BLW.Kt()
 
 	if defensive then
 	-- If target == self do full threat rotation, no bash
-	
+	if UnitExists("targettarget") and UnitIsUnit("player", "targettarget") then
+		if UnitIsUnit("player", "targettarget") and BLW.Rage() > (BLW.mainAbilityCost + 15) and UnitAffectingCombat("player") and CheckInteractDistance("target", 3) and not BC.BuffIndexByName("Shield Block") then
+			CastSpellByName("Shield Block")
+		end
+		if BLW.Rage() > (BLW.mainAbilityCost + 15) then
+			CastSpellByName("Heroic Strike")
+		end
+		if not BLW.SpellOnCD(BLW.mainAbility) then
+			CastSpellByName(BLW.mainAbility)
+			if BLW.SpellOnCD(BLW.mainAbility) then
+				BLW.lastMainAbility = GetTime()
+			end
+		end
+		if BLW.Rage() < BLW.mainAbilityCost and not BLW.SpellOnCD("Revenge") then
+			CastSpellByName("Revenge")
+			if BLW.SpellOnCD("Revenge") then
+				BLW.revenge = GetTime()
+			end
+		end
+		if not BLW.SpellOnCD("Revenge") then
+			CastSpellByName("Revenge")
+			if BLW.SpellOnCD("Revenge") then
+				BLW.revenge = GetTime()
+			end
+		end
+		if not ((GetTime() - BLW.lastMainAbility) > 4.5) and not ((GetTime() - BLW.revenge) > 3.5 and BLW.revengeTimer) then
+			if BC.HasDebuff("target", "Sunder") < 5 and BLW.Rage() > 19 then
+				CastSpellByName("Sunder Armor")
+				if BLW.SpellOnCD("Sunder Armor") then
+					BLW.sunder = GetTime()
+				end
+			end
+			if BLW.Rage() > (BLW.mainAbilityCost + 40) then
+				CastSpellByName("Sunder Armor")
+				if BLW.SpellOnCD("Sunder Armor") then
+					BLW.sunder = GetTime()
+				end
+			end
+		end
+	end
 	-- if target != self and targettarget class != warrior do shield slam and threat rotation
-	
+	if UnitExists("targettarget") and UnitClass("targettarget") ~= "Warrior" then
+		if BLW.Rage() > (BLW.mainAbilityCost + 25) then
+			CastSpellByName("Heroic Strike")
+		end
+		if not BLW.SpellOnCD(BLW.mainAbility) then
+			CastSpellByName(BLW.mainAbility)
+			if BLW.SpellOnCD(BLW.mainAbility) then
+				BLW.lastMainAbility = GetTime()
+			end
+		end
+		if BLW.Rage() < BLW.mainAbilityCost and not BLW.SpellOnCD("Revenge") then
+			CastSpellByName("Revenge")
+			if BLW.SpellOnCD("Revenge") then
+				BLW.revenge = GetTime()
+			end
+		end
+		if not BLW.SpellOnCD("Revenge") then
+			CastSpellByName("Revenge")
+			if BLW.SpellOnCD("Revenge") then
+				BLW.revenge = GetTime()
+			end
+		end
+		if not ((GetTime() - BLW.lastMainAbility) > 4.5) and not ((GetTime() - BLW.revenge) > 3.5 and BLW.revengeTimer) then
+			if BC.HasDebuff("target", "Sunder") < 5 and BLW.Rage() > 19 then
+				CastSpellByName("Sunder Armor")
+				if BLW.SpellOnCD("Sunder Armor") then
+					BLW.sunder = GetTime()
+				end
+			end
+			if BLW.Rage() > (BLW.mainAbilityCost + 40) then
+				CastSpellByName("Sunder Armor")
+				if BLW.SpellOnCD("Sunder Armor") then
+					BLW.sunder = GetTime()
+				end
+			end
+		end		
+	end
 	-- if target != self and targettarget class == warrior do only heroic strikes and sunder, save rage for shield slam
+	if UnitExists("targettarget") and UnitClass("targettarget") == "Warrior" and not UnitIsUnit("player", "targettarget")then
+		if BLW.Rage() > (BLW.mainAbilityCost + 25) then
+			CastSpellByName("Heroic Strike")
+		end
+	end
 	else
 		CastSpellByName("Defensive Stance")
 	end
