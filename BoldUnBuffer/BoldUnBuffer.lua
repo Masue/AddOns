@@ -48,6 +48,8 @@ function BUB.InitBuffTables()
 		if BC.IsShieldEquipped() then
 			table.insert(BUB.warrior, "Blessing of Salvation")
 			table.insert(BUB.warrior, "Greater Blessing of Salvation")
+			table.insert(BUB.warrior, "Force of Will") -- Force of Will trinket buff
+
 		else
 			-- fury warrior specific things? remove inspiration etc?
 		end
