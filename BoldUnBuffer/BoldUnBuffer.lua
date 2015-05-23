@@ -42,6 +42,18 @@ function BUB.InitBuffTables()
 	BUB.paladin = {
 		"Battle Shout",
 	}
+		BUB.rogue = {
+		"Blessing of Wisdom",
+		"Greater Blessing of Wisdom",
+		"Arcane Intellect",
+		"Arcane Brilliance",
+		"Divine Spirit",
+		"Prayer of Spirit",
+		"Intellect", -- int scroll.
+		"Spirit", -- spi scroll.
+		"Blessing of Shahram",
+		"Regrowth",
+	}
 
 	local class = UnitClass("player")
 	
@@ -58,7 +70,10 @@ function BUB.InitBuffTables()
 		for k, buff in pairs(BUB.warrior) do table.insert(BUB.buffs, 1, buff) end
 	end
 	-- end of warrior stuffs.
-
+	-- rogue stuffs
+	if class == "Rogue" then
+		for k, buff in pairs(BUB.rogue) do table.insert(BUB.buffs, 1, buff) end
+	end	
 	-- paladin stuffs.
 	if class == "Paladin" then
 		for k, buff in pairs(BUB.paladin) do BUB.buffs[k] = buff end
