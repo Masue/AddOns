@@ -38,6 +38,7 @@ function BUB.InitBuffTables()
 		"Bloodthirst",
 		"Blessing of Shahram",
 		"Regrowth",
+		"Blessing of the claw",
 	}
 	BUB.paladin = {
 		"Battle Shout",
@@ -53,6 +54,9 @@ function BUB.InitBuffTables()
 		"Spirit", -- spi scroll.
 		"Blessing of Shahram",
 		"Regrowth",
+		"Blessing of the claw",
+		"Greater Blessing of Sanctuary",
+		"Blessing of Sanctuary",
 	}
 
 	local class = UnitClass("player")
@@ -64,6 +68,10 @@ function BUB.InitBuffTables()
 			table.insert(BUB.warrior, "Greater Blessing of Salvation")
 			table.insert(BUB.warrior, "Force of Will") -- Force of Will trinket buff
 
+		else		
+		if not BC.IsShieldEquipped() then
+			table.insert(BUB.warrior, "Blessing of Sanctuary")
+			table.insert(BUB.warrior, "Greater Blessing of Sanctuary")
 		else
 			-- fury warrior specific things? remove inspiration etc?
 		end
