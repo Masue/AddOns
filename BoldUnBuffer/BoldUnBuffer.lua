@@ -37,6 +37,7 @@ function BUB.InitBuffTables()
 		-- "Fury of Forgewright", -- ironfoe, might fuck the proc up?
 		"Bloodthirst",
 		"Blessing of Shahram",
+		"Regrowth",
 	}
 	BUB.paladin = {
 		"Battle Shout",
