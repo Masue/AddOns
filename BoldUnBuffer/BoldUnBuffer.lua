@@ -43,7 +43,8 @@ function BUB.InitBuffTables()
 	BUB.paladin = {
 		"Battle Shout",
 	}
-		BUB.rogue = {
+	
+	BUB.rogue = {
 		"Blessing of Wisdom",
 		"Greater Blessing of Wisdom",
 		"Arcane Intellect",
@@ -68,10 +69,6 @@ function BUB.InitBuffTables()
 			table.insert(BUB.warrior, "Greater Blessing of Salvation")
 			table.insert(BUB.warrior, "Force of Will") -- Force of Will trinket buff
 
-		else		
-		if not BC.IsShieldEquipped() then
-			table.insert(BUB.warrior, "Blessing of Sanctuary")
-			table.insert(BUB.warrior, "Greater Blessing of Sanctuary")
 		else
 			-- fury warrior specific things? remove inspiration etc?
 		end
@@ -80,7 +77,7 @@ function BUB.InitBuffTables()
 	-- end of warrior stuffs.
 	-- rogue stuffs
 	if class == "Rogue" then
-		for k, buff in pairs(BUB.rogue) do table.insert(BUB.buffs, 1, buff) end
+		for k, buff in pairs(BUB.rogue) do BUB.buffs[k] = buff end
 	end	
 	-- paladin stuffs.
 	if class == "Paladin" then
