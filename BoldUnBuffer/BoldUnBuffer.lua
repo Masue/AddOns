@@ -71,6 +71,9 @@ function BUB.InitBuffTables()
 		"Agility",
 		"Strength",
 		"Spirit",
+		"Juju Might",
+		"Juju Flurry",
+		"Juju Power",
 	}
 
 	local class = UnitClass("player")
