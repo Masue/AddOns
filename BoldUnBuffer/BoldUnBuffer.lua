@@ -58,6 +58,19 @@ function BUB.InitBuffTables()
 		"Blessing of the claw",
 		"Greater Blessing of Sanctuary",
 		"Blessing of Sanctuary",
+		"Armor of Faith",
+		"Inspiration",
+	}
+		BUB.warlock = {
+		"Battle Shout",
+		"Divine Spirit",
+		"Prayer of Spirit",
+		"Fist of Shahram",
+		"Greater Blessing of Sanctuary",
+		"Blessing of Sanctuary",
+		"Agility",
+		"Strength",
+		"Spirit",
 	}
 
 	local class = UnitClass("player")
@@ -70,7 +83,9 @@ function BUB.InitBuffTables()
 			table.insert(BUB.warrior, "Force of Will") -- Force of Will trinket buff
 
 		else
-			-- fury warrior specific things? remove inspiration etc?
+			table.insert(BUB.warrior, "Armor of Faith")
+			table.insert(BUB.warrior, "Inspiration")
+
 		end
 		for k, buff in pairs(BUB.warrior) do table.insert(BUB.buffs, 1, buff) end
 	end
@@ -79,9 +94,15 @@ function BUB.InitBuffTables()
 	if class == "Rogue" then
 		for k, buff in pairs(BUB.rogue) do BUB.buffs[k] = buff end
 	end	
+	-- rogue end
 	-- paladin stuffs.
 	if class == "Paladin" then
 		for k, buff in pairs(BUB.paladin) do BUB.buffs[k] = buff end
 	end
 	-- end of paladin stuffs.
+	-- warlock
+	if class == "Warlock" then
+		for k, buff in pairs(BUB.warlock) do BUB.buffs[k] = buff end
+	end
+	-- warlock end
 end
