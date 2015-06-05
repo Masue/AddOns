@@ -37,7 +37,6 @@ function BUB.InitBuffTables()
 		-- "Fury of Forgewright", -- ironfoe, might fuck the proc up?
 		"Bloodthirst",
 		"Blessing of Shahram",
-		"Regrowth",
 		"Blessing of the claw",
 	}
 	BUB.paladin = {
@@ -88,7 +87,7 @@ function BUB.InitBuffTables()
 		else
 			table.insert(BUB.warrior, "Armor of Faith")
 			table.insert(BUB.warrior, "Inspiration")
-
+			table.insert(BUB.warrior, "Regrowth")
 		end
 		for k, buff in pairs(BUB.warrior) do table.insert(BUB.buffs, 1, buff) end
 	end
