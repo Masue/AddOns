@@ -56,6 +56,7 @@ function BUB.InitBuffTables()
 		"Regrowth",
 		"Blessing of the claw",
 		"Greater Blessing of Sanctuary",
+		"Greater Blessing of Light",
 		"Blessing of Sanctuary",
 		"Armor of Faith",
 		"Inspiration",
@@ -67,6 +68,7 @@ function BUB.InitBuffTables()
 		"Fist of Shahram",
 		"Greater Blessing of Sanctuary",
 		"Blessing of Sanctuary",
+		"Greater Blessing of Light",
 		"Agility",
 		"Strength",
 		"Spirit",
@@ -82,12 +84,18 @@ function BUB.InitBuffTables()
 		if BC.IsShieldEquipped() then
 			table.insert(BUB.warrior, "Blessing of Salvation")
 			table.insert(BUB.warrior, "Greater Blessing of Salvation")
+			table.insert(BUB.warrior, "Greater Blessing of Sanctuary")		
+			table.insert(BUB.warrior, "Blessing of Sanctuary")				
 			table.insert(BUB.warrior, "Force of Will") -- Force of Will trinket buff
-
 		else
 			table.insert(BUB.warrior, "Armor of Faith")
 			table.insert(BUB.warrior, "Inspiration")
 			table.insert(BUB.warrior, "Regrowth")
+			table.insert(BUB.warrior, "Greater Blessing of Light")
+			table.insert(BUB.warrior, "Blessing of Light")
+			table.insert(BUB.warrior, "Greater Blessing of Sanctuary")	
+			table.insert(BUB.warrior, "Blessing of Sanctuary")	
+
 		end
 		for k, buff in pairs(BUB.warrior) do table.insert(BUB.buffs, 1, buff) end
 	end
