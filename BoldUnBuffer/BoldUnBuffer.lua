@@ -60,6 +60,7 @@ function BUB.InitBuffTables()
 		"Blessing of Sanctuary",
 		"Armor of Faith",
 		"Inspiration",
+		"Thorns",
 	}
 		BUB.warlock = {
 		"Battle Shout",
@@ -75,6 +76,7 @@ function BUB.InitBuffTables()
 		"Juju Might",
 		"Juju Flurry",
 		"Juju Power",
+		"Thorns",
 	}
 
 	local class = UnitClass("player")
@@ -95,6 +97,7 @@ function BUB.InitBuffTables()
 			table.insert(BUB.warrior, "Blessing of Light")
 			table.insert(BUB.warrior, "Greater Blessing of Sanctuary")	
 			table.insert(BUB.warrior, "Blessing of Sanctuary")	
+			table.insert(BUB.warrior, "Thorns")	
 
 		end
 		for k, buff in pairs(BUB.warrior) do table.insert(BUB.buffs, 1, buff) end
