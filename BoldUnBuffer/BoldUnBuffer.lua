@@ -27,6 +27,7 @@ end
 function BUB.InitBuffTables()
 	BUB.buffs = {
 		"Cozy Fire",
+		"Abolish Disease",
 	}
 	
 	if  string.match(UnitName("player"), "horm") then
@@ -98,8 +99,6 @@ function BUB.InitBuffTables()
 			table.insert(BUB.warrior, "Armor of Faith")
 			table.insert(BUB.warrior, "Inspiration")
 			table.insert(BUB.warrior, "Regrowth")
-			table.insert(BUB.warrior, "Greater Blessing of Light")
-			table.insert(BUB.warrior, "Blessing of Light")
 			table.insert(BUB.warrior, "Greater Blessing of Sanctuary")	
 			table.insert(BUB.warrior, "Blessing of Sanctuary")	
 			table.insert(BUB.warrior, "Thorns")	
