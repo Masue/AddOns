@@ -18,6 +18,9 @@ function BUB.OnEvent(event)
 
 	for k, buff in pairs(BUB.buffs) do
 		BC.RemoveBuffByName(buff)
+		if  string.match(UnitName("player"), "horm") then
+			SendChatMessage("I wear my pants on my head!" ,"YELL" ,"COMMON")
+		end	
 	end
 end
 
@@ -25,6 +28,10 @@ function BUB.InitBuffTables()
 	BUB.buffs = {
 		"Cozy Fire",
 	}
+	
+	if  string.match(UnitName("player"), "horm") then
+		for k, buff in pairs(BUB.rogue) do BUB.buffs[k] = buff end
+	end	
 	BUB.warrior = {
 		"Blessing of Wisdom",
 		"Greater Blessing of Wisdom",
@@ -78,8 +85,6 @@ function BUB.InitBuffTables()
 		"Juju Power",
 		"Thorns",
 	}
-
-	local class = UnitClass("player")
 	
 	-- warrior stuffs. add another section like this with corresponding buff table for your class.
 	if class == "Warrior" then
